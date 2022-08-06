@@ -11,25 +11,23 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    // return results, do not console.log!
-    // let playerSelection.charAt(0).toUpperCase() + text.substr(1).toLowerCase();
-    const winMessage = 'You win! '+computerSelection+' beats '+(playerSelection.charAt(0).toUpperCase() + playerSelection.substr(1).toLowerCase())+'!';
-    const loseMessage = 'You lose! '+computerSelection+' beats '+(playerSelection.charAt(0).toUpperCase() + playerSelection.substr(1).toLowerCase())+'!';
-    const drawMessage = 'Round is a draw!'
-    if (playerSelection.toLowerCase() === 'rock' && computerSelection.toLowerCase() === 'paper') {
+    let playerChoice = playerSelection.charAt(0).toUpperCase() + playerSelection.substr(1).toLowerCase()
+    const winMessage = 'You win! '+playerChoice+' beats '+computerSelection+'!';
+    const loseMessage = 'You lose! '+computerSelection+' beats '+playerChoice+'!';
+    const drawMessage = 'Round is a draw! You chose: '+playerChoice+', Computer chose: '+computerSelection+'.';
+
+    if (playerSelection.toLowerCase() === 'rock' && computerSelection === 'Paper') {
         return loseMessage;
-    } else if (playerSelection.toLowerCase() === 'paper' && computerSelection.toLowerCase() === 'scissors') {
+    } else if (playerSelection.toLowerCase() === 'paper' && computerSelection === 'Scissors') {
         return loseMessage;
-    } else if (playerSelection.toLowerCase() === 'scissors' && computerSelection.toLowerCase() === 'rock') {
+    } else if (playerSelection.toLowerCase() === 'scissors' && computerSelection === 'Rock') {
         return loseMessage;
     } else if (playerSelection.toLowerCase() === computerSelection.toLowerCase()) {
         return drawMessage;
     } else {
-        return winMessage;
+        return winMessage
     }
 }
-
-//  Use these to test function!
 
 const playerSelection = 'rOcK';
 const computerSelection = getComputerChoice();
