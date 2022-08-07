@@ -1,15 +1,16 @@
+// Learned how to create an arry, then select a random value
+const rps = ['Rock', 'Paper', 'Scissors'];
+
+// Scores start at zero
+let playerScore = 0;
+let computerScore = 0;
+
+// Gets computers choice for each round
 function getComputerChoice() {
-    let computerChoice = Math.floor(Math.random()*3);
-    
-    if (computerChoice === 0) {
-        return 'Rock';
-    } else if (computerChoice === 1) {
-        return 'Paper';
-    } else {
-        return 'Scissors';
-    }
+    return rps[Math.floor(Math.random()*rps.length)]
 }
 
+// Plays a round, and grants points to winner of round
 function playRound(playerSelection, computerSelection) {
 
     let playerChoice = playerSelection.charAt(0).toUpperCase() + playerSelection.substr(1).toLowerCase();
@@ -31,9 +32,7 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-let playerScore = 0;
-let computerScore = 0;
-
+// Plays the game for 5 rounds, and declares winner after all rounds have been played
 function game() {
 
     for (let i = 0; i < 5; i++) {
@@ -53,7 +52,7 @@ function game() {
         return `You lost the game! Final score: ${playerScore} - ${computerScore}!`
     }
 }
-
+    // Shows scoreboard at end of each game
     console.log(scoreBoard());
 }
 
