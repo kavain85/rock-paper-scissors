@@ -23,6 +23,19 @@ body {
 button {
     height: 100px;
     width: 200px;
+    font-size: 24px;
+    background-color: black;
+    border: 2px solid white;
+    border-radius: 20px;
+    color: white;
+}
+
+button:hover {
+    background-color: slategrey;
+}
+
+button:active {
+    background-color: grey;
 }
 
 #button-container {
