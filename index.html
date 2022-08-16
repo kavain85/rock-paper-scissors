@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <div id="main">
@@ -15,14 +15,23 @@
             <h3>A classic game, involving a bit of skill (not really), luck (pretty much), and normal household objects. The goal is to destroy your opponent using a rock, a piece of paper, or a pair of scissors (don't run with them!).</h3>
         </div>
         <div id="button-container">
-            <div id="button-header">Choose your weapon:</div>
-            <div id="buttons">
-                <button id="rock">Rock</button>
-                <button id="paper">Paper</button>
-                <button id="scissors">Scissors</button>
+            <div id="button-header">Choose your weapon to begin:</div>
+            <div id="button-box">
+                <button>Rock</button>
+                <button>Paper</button>
+                <button>Scissors</button>
             </div>
         </div>
-        <p id="output-test">This is where output goes</p>
+        <div id="game-board">
+            <div id="choices">
+                <div id="player-choice">You chose:</div>
+                <div id="computer-choice">Computer chose:</div>
+            </div>
+            <div id="scoreboard">
+                <div id="player-score">Your score:</div>
+                <div id="computer-score">Computer score:</div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
