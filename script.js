@@ -1,31 +1,30 @@
-//  grabs buttons for use in script
-const choices = document.querySelectorAll('button');
+//  grabs buttons for use in script, declares variables
+const choices = document.querySelectorAll('.choice');
+let buttonText;
+let playerChoice;
 
-//  Gets computer choice, works
+//  Gets computer choice
 function getComputerChoice() {
     const rps = ['Rock', 'Paper', 'Scissors'];
     return rps[Math.floor(Math.random() * rps.length)];
 } 
 
-function getPlayerChoice() {
-    choices.forEach((button) => {
-        button.addEventListener('click', (playerChoice) => {
-            return button.textContent;
-        });
+//  Grabs button text and sends value to buttonText variable when player clicks a button
+choices.forEach((button) => {
+    button.addEventListener('click', () => {
+        buttonText = button.textContent;
     });
-}
+});
 
 // Plays a round when user chooses and clicks a button
-function playRound() {
-    //  does not work
-    let playerChoice = getPlayerChoice();
-    //  works
-    let computerChoice = getComputerChoice();
-    //  works
+function playRound(playerChoice, computerChoice) {
+    playerChoice = buttonText;
+    computerChoice = getComputerChoice();
+
     console.log(playerChoice+' - '+computerChoice);
 }
 
-// Fires off playRound function, works
+// Fires off playRound function
 choices.forEach((button) => {
     button.addEventListener('click', () => {
         playRound();
