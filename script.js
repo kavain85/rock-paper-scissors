@@ -30,7 +30,8 @@ function playRound(playerChoice, computerChoice) {
     pScoreOutput = pScoreDisplay;
     cScoreOutput = cScoreDisplay;
     playerChoice = buttonText;
-    cChoiceOutput.textContent = getComputerChoice()
+    cChoiceOutput.textContent = getComputerChoice();
+    pChoiceOutput.textContent = playerChoice;
         
     // const winMessage = `You chose: ${playerChoice}. Computer chose: ${computerChoice}. You win!`;
     // const loseMessage = `You chose: ${playerChoice} \r\nComputer chose: ${computerChoice} \nYou lose!`;
