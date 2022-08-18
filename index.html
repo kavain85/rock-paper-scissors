@@ -11,8 +11,8 @@
 <body>
     <div id="main">
         <div id="page-header">
-            <h1>Rock, Paper, Scissors</h1>
-            <h3>A classic game, involving a bit of skill (not really), luck (pretty much), and normal household objects. The goal is to destroy your opponent using a rock, a piece of paper, or a pair of scissors (don't run with them!).</h3>
+            <div id="title">Rock, Paper, Scissors</div>
+            <div id="description">A classic game, involving a bit of skill (not really), luck (pretty much), and normal household objects. The goal is to destroy your opponent using a rock, a piece of paper, or a pair of scissors (don't run with them!).</div>
         </div>
         <div id="button-container">
             <div id="button-header">Choose your weapon to begin:</div>
@@ -24,12 +24,15 @@
         </div>
         <div id="game-board">
             <div id="choices">
-                <div id="player-choice">You chose:</div>
-                <div id="computer-choice">Computer chose:</div>
+                <div>Player Chose: <div id="p-choice">None</div></div>
+                <div>Computer Chose: <div id="c-choice">None</div></div>
+            </div>
+            <div id="round-results">
+                <div><div id="winner">Player</div><div>wins round!</div></div>
             </div>
             <div id="scoreboard">
-                <div id="player-score">Your score:</div>
-                <div id="computer-score">Computer score:</div>
+                <div>Player Score: <div id="p-score">0</div></div>
+                <div>Computer Score: <div id="c-score">0</div></div>
             </div>
         </div>
     </div>
