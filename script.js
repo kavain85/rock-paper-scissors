@@ -1,7 +1,14 @@
 //  grabs buttons for use in script, declares variables
-const choices = document.querySelectorAll('.choice');
+const choiceButtons = document.querySelectorAll('.choice');
+const pChoiceDisplay = document.querySelector('#p-choice');
+const cChoiceDisplay = document.querySelector('#c-choice');
+const pScoreDisplay = document.querySelector('#p-score');
+const cScoreDisplay = document.querySelector('#c-score');
+const winnerName = document.querySelector('#winner-name');
+const winStatus = document.querySelector('#win-status');
 let buttonText;
-let playerChoice;
+let playerScore;
+let computerScore;
 
 //  Gets computer choice
 function getComputerChoice() {
@@ -10,7 +17,7 @@ function getComputerChoice() {
 } 
 
 //  Grabs button text and sends value to buttonText variable when player clicks a button
-choices.forEach((button) => {
+choiceButtons.forEach((button) => {
     button.addEventListener('click', () => {
         buttonText = button.textContent;
     });
@@ -18,34 +25,34 @@ choices.forEach((button) => {
 
 // Plays a round when user chooses and clicks a button
 function playRound(playerChoice, computerChoice) {
+    pChoiceOutput = pChoiceDisplay;
+    cChoiceOutput = cChoiceDisplay;
+    pScoreOutput = pScoreDisplay;
+    cScoreOutput = cScoreDisplay;
     playerChoice = buttonText;
-    computerChoice = getComputerChoice();
+    cChoiceOutput.textContent = getComputerChoice()
+        
+    // const winMessage = `You chose: ${playerChoice}. Computer chose: ${computerChoice}. You win!`;
+    // const loseMessage = `You chose: ${playerChoice} \r\nComputer chose: ${computerChoice} \nYou lose!`;
+    // const drawMessage = `You chose: ${playerChoice} \r\nComputer chose: ${computerChoice} \nRound is a draw!`;
+    // if (playerChoice === 'Rock' && computerChoice === 'Paper'
+    //     || playerChoice === 'Paper' && computerChoice === 'Scissors'
+    //     || playerChoice === 'Scissors' && computerChoice === 'Rock') {
+    //     // ++computerScore;
+    //     pChoiceOutput.textContent = playerChoice;
+    // } else if (playerChoice === computerChoice) {
+    //     // choiceOutput.textContent = drawMessage;
+    // } else {
+    //     // ++playerScore;
+    //     // choiceOutput.textContent = winMessage;
+    // }
 
-    console.log(playerChoice+' - '+computerChoice);
+    console.log(`Player: ${playerChoice}, Computer: ${cChoiceOutput.textContent}`);
 }
 
-// Fires off playRound function
-choices.forEach((button) => {
+// Fires off playRound function, similar to game() in original version
+choiceButtons.forEach((button) => {
     button.addEventListener('click', () => {
         playRound();
     });
 });
-
-
-// Original playRound code from console version
-// function playRound(playerChoice, computerSelection) {
-//  const winMessage = `You win! ${playerChoice} beats ${computerSelection}!`;
-//  const loseMessage = `You lose! ${computerSelection} beats ${playerChoice}!`;
-//  const drawMessage = `Round is a draw! You chose: ${playerChoice}, Computer chose: ${computerSelection}`;
-//  if (playerChoice === 'Rock' && computerSelection === 'Paper'
-//      || playerChoice === 'Paper' && computerSelection === 'Scissors'
-//      || playerChoice === 'Scissors' && computerSelection === 'Rock') {
-//      ++computerScore;
-//      return loseMessage;
-//  } else if (playerChoice === computerSelection) {
-//      return drawMessage;
-//  } else {
-//      ++playerScore;
-//      return winMessage;
-//  }
-// }
