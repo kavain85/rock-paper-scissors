@@ -7,8 +7,8 @@ const cScoreDisplayElement = document.querySelector('#c-score');
 const winnerNameElement = document.querySelector('#winner-name');
 const winStatusElement = document.querySelector('#win-status');
 let buttonText;
-let pScore;
-let cScore;
+let pScore = 0;
+let cScore = 0;
 
 //  Gets computer choice
 function getComputerChoice() {
@@ -33,37 +33,28 @@ function playRound() {
     cChoiceOutput.textContent = getComputerChoice();
     pChoiceOutput.textContent = pChoiceText;
     pChoice = pChoiceOutput.textContent;
-    cChoice = cChoiceOutput.textContent
-    // cChoiceOutput.textContent = getComputerChoice();
-    // pChoiceOutput.textContent = buttonText;
-    // pChoice = pChoiceOutput.textContent(buttonText);
-    // cChoice = cChoiceOutput.textContent(getComputerChoice);
-    winnerName = winnerNameElement.textContent;
+    cChoice = cChoiceOutput.textContent;
+    winnerName = winnerNameElement;
+    winStatus = winStatusElement;
 
-    roundDraw();
-
-    // const winMessage = `You chose: ${playerChoice}. Computer chose: ${computerChoice}. You win!`;
-    // const loseMessage = `You chose: ${playerChoice} \r\nComputer chose: ${computerChoice} \nYou lose!`;
-    // const drawMessage = `You chose: ${playerChoice} \r\nComputer chose: ${computerChoice} \nRound is a draw!`;
     if (pChoice === 'Rock' && cChoice === 'Paper'
         || pChoice === 'Paper' && cChoice === 'Scissors'
         || pChoice === 'Scissors' && cChoice === 'Rock') {
-        
-        // ++computerScore;
+        winnerName.textContent = 'Computer';
+        winStatus.textContent = 'wins round!'
+        ++cScore;
+        cScoreOutput.textContent = cScore;
     } else if (pChoice === cChoice) {
-        // choiceOutput.textContent = drawMessage;
-    } else {
-        // ++playerScore;
-        
-        // choiceOutput.textContent = winMessage;
+            winnerName.textContent = 'Round';
+            winStatus.textContent = 'Draw';
+        } else {
+            winnerName.textContent = 'Player';
+            winStatus.textContent = 'wins round!'
+            ++pScore;
+            pScoreOutput.textContent = pScore;
     }
 
     console.log(`Player: ${pChoice}, Computer: ${cChoice}`);
-
-    function roundDraw() {
-        winnerName = 'Round';
-        winStatus = 'Draw';
-    }
 }
 
 // Fires off playRound function, similar to game() in original version
