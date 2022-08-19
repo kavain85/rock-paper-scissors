@@ -9,6 +9,7 @@ const winStatusElement = document.querySelector('#win-status');
 let buttonText;
 let pScore = 0;
 let cScore = 0;
+let numRounds = 0;
 
 //  Gets computer choice
 function getComputerChoice() {
@@ -20,6 +21,7 @@ function getComputerChoice() {
 choiceButtons.forEach((button) => {
     button.addEventListener('click', () => {
         buttonText = button.textContent;
+        playRound();
     });
 });
 
@@ -56,10 +58,3 @@ function playRound() {
 
     console.log(`Player: ${pChoice}, Computer: ${cChoice}`);
 }
-
-// Fires off playRound function, similar to game() in original version
-choiceButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-        playRound();
-    });
-});
