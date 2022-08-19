@@ -14,3 +14,12 @@ Added:
 - Function for playing a round, and output to console (for testing)
 - Additional HTML elements for UI (player/computer choices, scoreboard)
 - CSS styling to buttons, choices, and scoreboard (in progress)
+
+__08/19/22__
+
+Added:
+- Scoring system
+- Page layout with improved visibility of choices and score
+- Round results, now displays the winner of each round or if it was a draw
+- CSS styling to support new page layout and elements
+- Logic for displaying game winner after 5 rounds (WIP, not fully functional yet)
