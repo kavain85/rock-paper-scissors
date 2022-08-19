@@ -6,10 +6,12 @@ const pScoreDisplayElement = document.querySelector('#p-score');
 const cScoreDisplayElement = document.querySelector('#c-score');
 const winnerNameElement = document.querySelector('#winner-name');
 const winStatusElement = document.querySelector('#win-status');
+const gameResultsElement = document.querySelector('#game-results');
+const resetButton = document.querySelector('#reset')
 let buttonText;
 let pScore = 0;
 let cScore = 0;
-let numRounds = 0;
+let numRounds;
 
 //  Gets computer choice
 function getComputerChoice() {
@@ -17,13 +19,13 @@ function getComputerChoice() {
     return rps[Math.floor(Math.random() * rps.length)];
 } 
 
+
 //  Grabs button text and sends value to buttonText variable when player clicks a button
 choiceButtons.forEach((button) => {
     button.addEventListener('click', () => {
         buttonText = button.textContent;
         playRound();
-    });
-});
+    })});
 
 // Plays a round when user chooses and clicks a button
 function playRound() {
@@ -46,7 +48,7 @@ function playRound() {
         winStatus.textContent = 'wins round!'
         ++cScore;
         cScoreOutput.textContent = cScore;
-    } else if (pChoice === cChoice) {
+        } else if (pChoice === cChoice) {
             winnerName.textContent = 'Round';
             winStatus.textContent = 'Draw';
         } else {
@@ -55,6 +57,22 @@ function playRound() {
             ++pScore;
             pScoreOutput.textContent = pScore;
     }
+};
 
-    console.log(`Player: ${pChoice}, Computer: ${cChoice}`);
-}
+function gameWinner() {
+    if (pScore > cScore) {
+        gameResultsElement.textContent = `Player wins game with score of ${pScore} to ${cScore}!`;
+        gameResultsElement.style.color = `green`;
+    } else if (pScore < cScore) {
+        gameResultsElement.textContent = `Computer wins game with score of ${cScore} to ${pScore}!`;
+        gameResultsElement.style.color = `red`;
+    } else {
+        gameResultsElement.textContent = `Game ended in a draw! Final score was ${pScore} to ${cScore}!`;
+        gameResultsElement.style.color = `cyan`;
+    }
+    resetButton.style.visibility = 'visible';
+};
+
+resetButton.addEventListener('click', () => {
+    window.location.reload();
+});
