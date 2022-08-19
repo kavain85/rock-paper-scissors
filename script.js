@@ -81,6 +81,7 @@ function gameOver() {
         gameResultsElement.style.color = `cyan`;
     }
     resetButton.style.visibility = 'visible'; // Makes reset button visible
+    choiceButtons.forEach(e => e.style.visibility = "hidden");
 };
 
 // Reset button to reload page and restart game
